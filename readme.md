@@ -69,6 +69,25 @@ npm test -- --testNamePattern="Unit test"
 npm test -- --testNamePattern="Test.*use case"
 ```
 
+### Testes End-to-End (*.e2e.spec.ts)
+- Testam o fluxo completo da API HTTP
+- Utilizam **Supertest** para simular requisições à aplicação Express
+- Validam criação, listagem e busca de produtos
+- Cobrem respostas em **JSON** e **XML**
+- Confirmam o comportamento real das rotas e do presenter
+
+**Arquivo:** `src/infrastructure/api/__tests__/product.e2e.spec.ts`
+
+**Testes:**
+- ✅ Deve criar um produto
+- ✅ Deve listar todos os produtos com resposta JSON e XML
+- ✅ Deve encontrar um produto específico por ID com resposta JSON e XML
+
+**Executar testes E2E de produtos:**
+```bash
+npx jest src/infrastructure/api/__tests__/product.e2e.spec.ts --runInBand
+```
+
 ## Como Rodar os Testes
 
 ### Todos os testes
@@ -86,9 +105,15 @@ npm test -- --testNamePattern="Unit"
 npm test -- --testNamePattern="integration"
 ```
 
+### Testes E2E de produtos apenas
+```bash
+npx jest src/infrastructure/api/__tests__/product.e2e.spec.ts --runInBand
+```
+
 ## Dependências
 
 - **TypeScript**: Tipagem estática
 - **Jest**: Framework de testes
 - **Sequelize**: ORM para banco de dados
 - **SQLite**: Banco de dados em memória para testes
+- **Supertest**: Teste de chamadas API

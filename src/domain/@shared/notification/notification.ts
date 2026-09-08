@@ -27,4 +27,8 @@ export default class Notification {
     });
     return message;
   }
+
+  clear(): void {
+    this.errors = [];
+  }
 }
